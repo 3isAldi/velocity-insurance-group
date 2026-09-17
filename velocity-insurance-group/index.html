@@ -52,10 +52,15 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--accent);
+            height: 50px;
+            width: auto;
+            cursor: pointer;
             text-decoration: none;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
         }
 
         nav {
@@ -93,7 +98,7 @@
         .hero {
             position: relative;
             height: 500px;
-            background: linear-gradient(rgba(8, 11, 19, 0.7), rgba(8, 11, 19, 0.7)), url('https://velocity-insurance-group.pages.dev/images/hero-street.jpg');
+            background: linear-gradient(rgba(8, 11, 19, 0.7), rgba(8, 11, 19, 0.7)), url('images/hero-street.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -453,7 +458,7 @@
 </head>
 <body>
     <header>
-        <a href="#" class="logo">Velocity Insurance Group</a>
+        <a href="/" class="logo"><img src="images/velocity-logo.png" alt="Velocity Insurance Group"></a>
         <nav>
             <a href="#main">EN (English)</a>
             <a href="#main">ES (Español)</a>
@@ -466,8 +471,8 @@
             <h1>Car insurance from $29 per month*</h1>
             <p>Answer a few questions. An agent calls you back with your quote, usually the same day.</p>
             <div class="quote-form">
-                <input type="text" placeholder="Enter your ZIP code">
-                <button class="btn-primary">Compare now</button>
+                <input type="text" placeholder="Enter your ZIP code" id="heroZip">
+                <button class="btn-primary" onclick="goToQuote()">Compare now</button>
             </div>
             <p class="disclaimer">* Rates vary by driver, vehicle and coverage. Your quote is prepared by a licensed agent.</p>
         </div>
@@ -558,8 +563,8 @@
         <h2>Two minutes now, a real quote today</h2>
         <p>Start with your ZIP code. You can stop at any point, nothing sends until the last step.</p>
         <div class="quote-form">
-            <input type="text" placeholder="Enter your ZIP code">
-            <button class="btn-primary">Start my quote</button>
+            <input type="text" placeholder="Enter your ZIP code" id="footerZip">
+            <button class="btn-primary" onclick="goToQuote()">Start my quote</button>
         </div>
     </section>
 
@@ -577,13 +582,9 @@
                 <h5>Coverage</h5>
                 <ul>
                     <li><a href="#main">Auto</a></li>
-                    <li><a href="#main">Home + auto bundle</a></li>
                     <li><a href="#main">Home</a></li>
                     <li><a href="#main">Renters</a></li>
                     <li><a href="#main">Life</a></li>
-                    <li><a href="#main">Umbrella</a></li>
-                    <li><a href="#main">Jewelry</a></li>
-                    <li><a href="#main">Boat</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -598,5 +599,11 @@
             <p style="margin-top: 1rem;">&copy; 2026 Velocity Insurance Group</p>
         </div>
     </footer>
+
+    <script>
+        function goToQuote() {
+            window.location.href = '/quote/';
+        }
+    </script>
 </body>
 </html>
