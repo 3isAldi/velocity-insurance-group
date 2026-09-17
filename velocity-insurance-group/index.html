@@ -53,31 +53,64 @@
 
         .logo {
             height: 50px;
-            width: auto;
             cursor: pointer;
             text-decoration: none;
+            display: flex;
+            align-items: center;
         }
 
         .logo img {
-            height: 100%;
+            height: 45px;
             width: auto;
+            object-fit: contain;
         }
 
         nav {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             align-items: center;
         }
 
-        nav a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.3s;
+        /* Language Toggle */
+        .language-toggle {
+            display: flex;
+            align-items: center;
+            background: rgba(0, 168, 255, 0.1);
+            border-radius: 20px;
+            padding: 0.25rem;
+            position: relative;
         }
 
-        nav a:hover {
-            color: var(--accent);
+        .lang-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            color: var(--text-light);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            z-index: 2;
+            position: relative;
+        }
+
+        .lang-btn.active {
+            color: var(--primary);
+        }
+
+        .toggle-bg {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            background: var(--accent);
+            border-radius: 20px;
+            transition: left 0.3s ease;
+            left: 0;
+            z-index: 1;
+        }
+
+        .lang-btn:last-child ~ .toggle-bg {
+            left: 50%;
         }
 
         .phone-link {
@@ -88,6 +121,8 @@
             text-decoration: none;
             font-weight: 600;
             transition: background 0.3s;
+            border: none;
+            cursor: pointer;
         }
 
         .phone-link:hover {
@@ -458,10 +493,13 @@
 </head>
 <body>
     <header>
-        <a href="/" class="logo"><img src="images/velocity-logo.png" alt="Velocity Insurance Group" style="height: 40px; width: auto; filter: drop-shadow(0 0 0 transparent);"></a>
+        <a href="/" class="logo"><img src="images/velocity-logo.png" alt="Velocity Insurance Group"></a>
         <nav>
-            <a href="#main">EN (English)</a>
-            <a href="#main">ES (Español)</a>
+            <div class="language-toggle">
+                <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+                <button class="lang-btn" onclick="setLanguage('es')">ES</button>
+                <div class="toggle-bg"></div>
+            </div>
             <a href="tel:+13059211076" class="phone-link">Call (305) 921-1076</a>
         </nav>
     </header>
@@ -603,6 +641,13 @@
     <script>
         function goToQuote() {
             window.location.href = '/quote/';
+        }
+
+        function setLanguage(lang) {
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            console.log('Language set to:', lang);
         }
     </script>
 </body>
