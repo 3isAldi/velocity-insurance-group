@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get a quote from Velocity Insurance Group">
+    <meta name="theme-color" content="#080B13">
+    <title>Get a quote | Velocity Insurance Group</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #080B13;
+            --secondary: #1a1f2e;
+            --accent: #00a8ff;
+            --text-light: #f0f0f0;
+            --text-muted: #b0b0b0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-light);
+            background: var(--primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: var(--primary);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .phone-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .phone-link:hover {
+            color: #0088cc;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            min-height: calc(100vh - 100px);
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .tab.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .tab:hover:not(.active) {
+            color: var(--text-light);
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            transition: color 0.3s;
+        }
+
+        .back-btn:hover {
+            color: var(--text-light);
+        }
+
+        /* Form Content */
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-step h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .form-step p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        /* Input Fields */
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--secondary);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 4px;
+            color: var(--text-light);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(0, 168, 255, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: var(--text-muted);
+        }
+
+        /* Button Grid for Options */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .option-btn {
+            padding: 1.25rem;
+            background: var(--secondary);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            color: var(--text-light);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            position: relative;
+        }
+
+        .option-btn:hover {
+            border-color: var(--accent);
+            background: rgba(0, 168, 255, 0.05);
+        }
+
+        .option-btn.active {
+            background: var(--accent);
+            color: var(--primary);
+            border-color: var(--accent);
+        }
+
+        .option-btn .badge-label {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.25rem 0.5rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Confirmation Page */
+        .confirmation {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .confirmation.active {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .confirmation-left h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .confirmation-left p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .call-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-size: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .call-btn:hover {
+            background: #0088cc;
+        }
+
+        .confirmation-summary {
+            margin-top: 2rem;
+        }
+
+        .confirmation-summary h3 {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-muted);
+        }
+
+        .summary-item strong {
+            color: var(--text-light);
+        }
+
+        .office-card {
+            background: rgba(0, 168, 255, 0.05);
+            border: 1px solid rgba(0, 168, 255, 0.2);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .office-card h3 {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .office-info {
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .office-info-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+
+        .office-info-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .office-hours {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0, 168, 255, 0.2);
+        }
+
+        .office-hours h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-muted);
+        }
+
+        .disclaimer {
+            background: rgba(0, 168, 255, 0.05);
+            border-left: 3px solid var(--accent);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Action Buttons */
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            background: #0088cc;
+        }
+
+        .btn-primary:disabled {
+            background: var(--text-muted);
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 168, 255, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .form-step h2 {
+                font-size: 1.8rem;
+            }
+
+            .button-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column-reverse;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .confirmation.active {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="images/velocity-logo.png" alt="Velocity Insurance Group" class="logo" onclick="goHome()">
+        <nav>
+            <a href="#">EN</a>
+            <a href="#">ES</a>
+            <a href="tel:+13059211076" class="phone-link">(305) 921-1076</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Tabs -->
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('coverage')">Coverage</div>
+            <div class="tab" onclick="switchTab('vehicle')">Vehicle</div>
+            <div class="tab" onclick="switchTab('driver')">Driver</div>
+            <div class="tab" onclick="switchTab('contact')">Contact</div>
+        </div>
+
+        <!-- Coverage Tab -->
+        <div class="form-step active" id="coverage">
+            <button class="back-btn" onclick="previousStep()" style="display:none;">← Back</button>
+            
+            <!-- ZIP Code -->
+            <div id="coverage-zip" class="form-section">
+                <h2>What's your ZIP code?</h2>
+                <div class="form-group">
+                    <input type="text" id="zip" placeholder="33166" onchange="updateFormState()">
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="nextStep()" id="zip-next" disabled>Next</button>
+                </div>
+            </div>
+
+            <!-- Are you currently insured? -->
+            <div id="coverage-insured" class="form-section" style="display:none;">
+                <button class="back-btn" onclick="previousStep()">← Back</button>
+                <h2>Are you currently insured?</h2>
+                <p>Say yes if you're covered by your own policy or someone else's.</p>
+                <div class="button-grid">
+                    <button class="option-btn" onclick="selectOption(this, 'insured', 'yes')">Yes</button>
+                    <button class="option-btn" onclick="selectOption(this, 'insured', 'no')">No</button>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="previousStep()">Back</button>
+                    <button class="btn btn-primary" onclick="nextStep()" id="insured-next" disabled>Next</button>
+                </div>
+            </div>
+
+            <!-- Do you own your home? -->
+            <div id="coverage-homeowner" class="form-section" style="display:none;">
+                <button class="back-btn" onclick="previousStep()">← Back</button>
+                <h2>Do you own your home?</h2>
+                <p>Homeowners usually qualify for a lower auto rate, even without bundling.</p>
+                <div class="button-grid">
+                    <button class="option-btn" onclick="selectOption(this, 'homeowner', 'yes')">Yes</button>
+                    <button class="option-btn" onclick="selectOption(this, 'homeowner', 'no')">No, I rent</button>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="previousStep()">Back</button>
+                    <button class="btn btn-primary" onclick="nextStep()" id="homeowner-next" disabled>Next</button>
+                </div>
+            </div>
+
+            <!-- How many cars? -->
+            <div id="coverage-cars" class="form-section" style="display:none;">
+                <button class="back-btn" onclick="previousStep()">← Back</button>
+                <h2>How many cars are you insuring?</h2>
+                <div class="button-grid">
+                    <button class="option-btn" onclick="selectOption(this, 'cars', '1')">1 car</button>
+                    <button class="option-btn" onclick="selectOption(this, 'cars', '2')">2 cars <span class="badge-label">Save 20%</span></button>
+                    <button class="option-btn" onclick="selectOption(this, 'cars', '3')">3 cars <span class="badge-label">Save 25%</span></button>
+                    <button class="option-btn" onclick="selectOption(this, 'cars', '4')">4 cars <span class="badge-label">Save 30%</span></button>
+                    <button class="option-btn" onclick="selectOption(this, 'cars', '5')">5 cars <span class="badge-label">Save 35%</span></button>
+                    <button class="option-btn" onclick="selectOption(this, 'cars', '6')">6 cars <span class="badge-label">Save 40%</span></button>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="previousStep()">Back</button>
+                    <button class="btn btn-primary" onclick="switchTab('vehicle')" id="cars-next" disabled>Next</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vehicle Tab -->
+        <div class="form-step" id="vehicle">
+            <button class="back-btn" onclick="switchTab('coverage')">← Back</button>
+
+            <!-- What year is your car? -->
+            <div id="vehicle-year" class="form-section">
+                <h2>What year is your car?</h2>
+                <div class="form-group">
+                    <input type="text" id="year" placeholder="Search year" onchange="updateFormState()">
+                </div>
+                <div class="button-grid">
+                    <button class="option-btn" onclick="selectOption(this, 'year', '2027')">2027</button>
+                    <button class="option-btn" onclick="selectOption(this, 'year', '2026')">2026</button>
+                    <button class="option-btn" onclick="selectOption(this, 'year', '2025')">2025</button>
+                    <button class="option-btn" onclick="selectOption(this, 'year', '2024')">2024</button>
+                    <button class="option-btn" onclick="selectOption(this, 'year', '2023')">2023</button>
+                    <button class="option-btn" onclick="selectOption(this, 'year', '2022')">2022</button>
+                    <button class="option-btn" onclick="selectOption(this, 'year', '2021')">2021</button>
+                    <button class="option-btn" onclick="selectOption(this, 'year', '2020')">2020</button>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="switchTab('coverage')">Back</button>
+                    <button class="btn btn-primary" onclick="nextStep()" id="year-next" disabled>Next</button>
+                </div>
+            </div>
+
+            <!-- What make is it? -->
+            <div id="vehicle-make" class="form-section" style="display:none;">
+                <button class="back-btn" onclick="previousStep()">← Back</button>
+                <h2>What make is it?</h2>
+                <div class="form-group">
+                    <input type="text" id="make" placeholder="Search make" onchange="updateFormState()">
+                </div>
+                <div class="button-grid">
+                    <button class="option-btn" onclick="selectOption(this, 'make', 'acura')">Acura</button>
+                    <button class="option-btn" onclick="selectOption(this, 'make', 'alfa')">Alfa Romeo</button>
+                    <button class="option-btn" onclick="selectOption(this, 'make', 'audi')">Audi</button>
+                    <button class="option-btn" onclick="selectOption(this, 'make', 'bmw')">BMW</button>
+                    <button class="option-btn" onclick="selectOption(this, 'make', 'buick')">Buick</button>
+                    <button class="option-btn" onclick="selectOption(this, 'make', 'cadillac')">Cadillac</button>
+                    <button class="option-btn" onclick="selectOption(this, 'make', 'chevrolet')">Chevrolet</button>
+                    <button class="option-btn" onclick="selectOption(this, 'make', 'chrysler')">Chrysler</button>
+                    <button class="option-btn" onclick="selectOption(this, 'make', 'dodge')">Dodge</button>
+                    <button class="option-btn" onclick="selectOption(this, 'make', 'fiat')">Fiat</button>
+                    <button class="option-btn" onclick="selectOption(this, 'make', 'ford')">Ford</button>
+                    <button class="option-btn" onclick="selectOption(this, 'make', 'genesis')">Genesis</button>
+                    <button class="option-btn" onclick="selectOption(this, 'make', 'gmc')">GMC</button>
+                    <button class="option-btn" onclick="selectOption(this, 'make', 'honda')">Honda</button>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="previousStep()">Back</button>
+                    <button class="btn btn-primary" onclick="nextStep()" id="make-next" disabled>Next</button>
+                </div>
+            </div>
+
+            <!-- And the model? -->
+            <div id="vehicle-model" class="form-section" style="display:none;">
+                <button class="back-btn" onclick="previousStep()">← Back</button>
+                <h2>And the model?</h2>
+                <div class="form-group">
+                    <input type="text" id="model" placeholder="Search model" onchange="updateFormState()">
+                </div>
+                <div class="button-grid">
+                    <button class="option-btn" onclick="selectOption(this, 'model', 'bronco')">Bronco</button>
+                    <button class="option-btn" onclick="selectOption(this, 'model', 'bronco-sport')">Bronco Sport</button>
+                    <button class="option-btn" onclick="selectOption(this, 'model', 'edge')">Edge</button>
+                    <button class="option-btn" onclick="selectOption(this, 'model', 'escape')">Escape</button>
+                    <button class="option-btn" onclick="selectOption(this, 'model', 'expedition')">Expedition</button>
+                    <button class="option-btn" onclick="selectOption(this, 'model', 'explorer')">Explorer</button>
+                    <button class="option-btn" onclick="selectOption(this, 'model', 'f150')">F-150</button>
+                    <button class="option-btn" onclick="selectOption(this, 'model', 'fusion')">Fusion</button>
+                    <button class="option-btn" onclick="selectOption(this, 'model', 'maverick')">Maverick</button>
+                    <button class="option-btn" onclick="selectOption(this, 'model', 'mustang')">Mustang</button>
+                    <button class="option-btn" onclick="selectOption(this, 'model', 'mustang-mach-e')">Mustang Mach-E</button>
+                    <button class="option-btn" onclick="selectOption(this, 'model', 'ranger')">Ranger</button>
+                    <button class="option-btn" onclick="selectOption(this, 'model', 'transit')">Transit</button>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="previousStep()">Back</button>
+                    <button class="btn btn-primary" onclick="nextStep()" id="model-next" disabled>Next</button>
+                </div>
+            </div>
+
+            <!-- Do you own or lease it? -->
+            <div id="vehicle-ownership" class="form-section" style="display:none;">
+                <button class="back-btn" onclick="previousStep()">← Back</button>
+                <h2>Do you own or lease it?</h2>
+                <div class="button-grid">
+                    <button class="option-btn" onclick="selectOption(this, 'ownership', 'owned')">Owned</button>
+                    <button class="option-btn" onclick="selectOption(this, 'ownership', 'financed')">Financed</button>
+                    <button class="option-btn" onclick="selectOption(this, 'ownership', 'leased')">Leased</button>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="previousStep()">Back</button>
+                    <button class="btn btn-primary" onclick="nextStep()" id="ownership-next" disabled>Next</button>
+                </div>
+            </div>
+
+            <!-- Do you want full coverage? -->
+            <div id="vehicle-coverage" class="form-section" style="display:none;">
+                <button class="back-btn" onclick="previousStep()">← Back</button>
+                <h2>Do you want full coverage?</h2>
+                <p>Financed and Leased cars are required to have it.</p>
+                <div class="button-grid">
+                    <button class="option-btn" onclick="selectOption(this, 'coverage', 'yes')">Yes, full coverage</button>
+                    <button class="option-btn" onclick="selectOption(this, 'coverage', 'no')">No, liability only</button>
+                    <button class="option-btn" onclick="selectOption(this, 'coverage', 'unsure')">I'm not sure, advise me</button>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="previousStep()">Back</button>
+                    <button class="btn btn-primary" onclick="switchTab('driver')" id="coverage-next" disabled>Next</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Driver Tab -->
+        <div class="form-step" id="driver">
+            <button class="back-btn" onclick="switchTab('vehicle')">← Back</button>
+
+            <!-- What's your date of birth? -->
+            <div id="driver-dob" class="form-section">
+                <h2>What's your date of birth?</h2>
+                <p>Only used to price the policy accurately.</p>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem;">
+                    <div class="form-group">
+                        <label>Month</label>
+                        <input type="text" id="month" placeholder="MM" maxlength="2" onchange="updateFormState()">
+                    </div>
+                    <div class="form-group">
+                        <label>Day</label>
+                        <input type="text" id="day" placeholder="DD" maxlength="2" onchange="updateFormState()">
+                    </div>
+                    <div class="form-group">
+                        <label>Year</label>
+                        <input type="text" id="birth-year" placeholder="YYYY" maxlength="4" onchange="updateFormState()">
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="switchTab('vehicle')">Back</button>
+                    <button class="btn btn-primary" onclick="nextStep()" id="dob-next" disabled>Continue</button>
+                </div>
+            </div>
+
+            <!-- What's your gender? -->
+            <div id="driver-gender" class="form-section" style="display:none;">
+                <button class="back-btn" onclick="previousStep()">← Back</button>
+                <h2>What's your gender?</h2>
+                <p>Carriers rate on this in Florida, so we have to ask.</p>
+                <div class="button-grid">
+                    <button class="option-btn" onclick="selectOption(this, 'gender', 'male')">Male</button>
+                    <button class="option-btn" onclick="selectOption(this, 'gender', 'female')">Female</button>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="previousStep()">Back</button>
+                    <button class="btn btn-primary" onclick="nextStep()" id="gender-next" disabled>Next</button>
+                </div>
+            </div>
+
+            <!-- Do you have any DUI or DWI convictions? -->
+            <div id="driver-dui" class="form-section" style="display:none;">
+                <button class="back-btn" onclick="previousStep()">← Back</button>
+                <h2>Do you have any DUI or DWI convictions in the past 3 years?</h2>
+                <div class="button-grid">
+                    <button class="option-btn" onclick="selectOption(this, 'dui', 'none')">None</button>
+                    <button class="option-btn" onclick="selectOption(this, 'dui', 'one')">One</button>
+                    <button class="option-btn" onclick="selectOption(this, 'dui', 'more')">Two or more</button>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="previousStep()">Back</button>
+                    <button class="btn btn-primary" onclick="nextStep()" id="dui-next" disabled>Next</button>
+                </div>
+            </div>
+
+            <!-- Do you need an SR-22? -->
+            <div id="driver-sr22" class="form-section" style="display:none;">
+                <button class="back-btn" onclick="previousStep()">← Back</button>
+                <h2>Do you need an SR-22?</h2>
+                <div class="button-grid">
+                    <button class="option-btn" onclick="selectOption(this, 'sr22', 'yes')">Yes</button>
+                    <button class="option-btn" onclick="selectOption(this, 'sr22', 'no')">No</button>
+                    <button class="option-btn" onclick="selectOption(this, 'sr22', 'unsure')">I don't know</button>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="previousStep()">Back</button>
+                    <button class="btn btn-primary" onclick="nextStep()" id="sr22-next" disabled>Next</button>
+                </div>
+            </div>
+
+            <!-- Need to add another driver? -->
+            <div id="driver-additional" class="form-section" style="display:none;">
+                <button class="back-btn" onclick="previousStep()">← Back</button>
+                <h2>Need to add another driver?</h2>
+                <p>Multi-driver policies are usually cheaper per person.</p>
+                <div class="button-grid">
+                    <button class="option-btn" onclick="selectOption(this, 'additional-driver', 'yes')">Yes, add a driver</button>
+                    <button class="option-btn" onclick="selectOption(this, 'additional-driver', 'no')">No, just me</button>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="previousStep()">Back</button>
+                    <button class="btn btn-primary" onclick="switchTab('contact')" id="additional-driver-next" disabled>Next</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Tab -->
+        <div class="form-step" id="contact">
+            <button class="back-btn" onclick="switchTab('driver')">← Back</button>
+
+            <!-- Who are you insured with now? -->
+            <div id="contact-carrier" class="form-section">
+                <h2>Who are you insured with now?</h2>
+                <div class="form-group">
+                    <input type="text" id="carrier-search" placeholder="Search insurance company" onchange="updateFormState()">
+                </div>
+                <div class="button-grid">
+                    <button class="option-btn" onclick="selectOption(this, 'carrier', 'allstate')">Allstate</button>
+                    <button class="option-btn" onclick="selectOption(this, 'carrier', 'national-general')">National General</button>
+                    <button class="option-btn" onclick="selectOption(this, 'carrier', 'geico')">GEICO</button>
+                    <button class="option-btn" onclick="selectOption(this, 'carrier', 'progressive')">Progressive</button>
+                    <button class="option-btn" onclick="selectOption(this, 'carrier', 'state-farm')">State Farm</button>
+                    <button class="option-btn" onclick="selectOption(this, 'carrier', 'liberty')">Liberty Mutual</button>
+                    <button class="option-btn" onclick="selectOption(this, 'carrier', 'farmers')">Farmers</button>
+                    <button class="option-btn" onclick="selectOption(this, 'carrier', 'usaa')">USAA</button>
+                    <button class="option-btn" onclick="selectOption(this, 'carrier', 'travelers')">Travelers</button>
+                    <button class="option-btn" onclick="selectOption(this, 'carrier', 'general')">The General</button>
+                    <button class="option-btn" onclick="selectOption(this, 'carrier', 'direct-auto')">Direct Auto</button>
+                    <button class="option-btn" onclick="selectOption(this, 'carrier', 'infinity')">Infinity</button>
+                    <button class="option-btn" onclick="selectOption(this, 'carrier', 'united-auto')">United Auto</button>
+                    <button class="option-btn" onclick="selectOption(this, 'carrier', 'root')">Root</button>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="switchTab('driver')">Back</button>
+                    <button class="btn btn-primary" onclick="nextStep()" id="carrier-next" disabled>Next</button>
+                </div>
+            </div>
+
+            <!-- How long have you been with them? -->
+            <div id="contact-duration" class="form-section" style="display:none;">
+                <button class="back-btn" onclick="previousStep()">← Back</button>
+                <h2>How long have you been with them?</h2>
+                <div class="button-grid">
+                    <button class="option-btn" onclick="selectOption(this, 'duration', 'more-3y')">More than 3 years</button>
+                    <button class="option-btn" onclick="selectOption(this, 'duration', '1-3y')">1 to 3 years</button>
+                    <button class="option-btn" onclick="selectOption(this, 'duration', '6-12m')">6 to 12 months</button>
+                    <button class="option-btn" onclick="selectOption(this, 'duration', 'less-3m')">Less than 3 months</button>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="previousStep()">Back</button>
+                    <button class="btn btn-primary" onclick="nextStep()" id="duration-next" disabled>Next</button>
+                </div>
+            </div>
+
+            <!-- Nearly done. What's your name? -->
+            <div id="contact-name" class="form-section" style="display:none;">
+                <button class="back-btn" onclick="previousStep()">← Back</button>
+                <h2>Nearly done. What's your name?</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+                    <div class="form-group">
+                        <label>First name</label>
+                        <input type="text" id="first-name" placeholder="First name" onchange="updateFormState()">
+                    </div>
+                    <div class="form-group">
+                        <label>Last name</label>
+                        <input type="text" id="last-name" placeholder="Last name" onchange="updateFormState()">
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="previousStep()">Back</button>
+                    <button class="btn btn-primary" onclick="nextStep()" id="name-next" disabled>Continue</button>
+                </div>
+            </div>
+
+            <!-- One last step - Phone -->
+            <div id="contact-phone" class="form-section" style="display:none;">
+                <button class="back-btn" onclick="previousStep()">← Back</button>
+                <h2>One last step</h2>
+                <p>This is the number our agent will call with your quote. We don't sell it, and nobody else gets it.</p>
+                <div class="form-group">
+                    <label>Phone number</label>
+                    <input type="tel" id="phone" placeholder="(305) 555-0123" onchange="updateFormState()">
+                </div>
+                <div class="button-group">
+                    <button class="btn btn-secondary" onclick="previousStep()">Back</button>
+                    <button class="btn btn-primary" onclick="submitForm()" id="phone-next" disabled>Get my quote</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confirmation Page -->
+        <div class="confirmation" id="confirmation-page">
+            <div class="confirmation-left">
+                <h2>Expect a call from one of our agents shortly with your quote</h2>
+                <p>Thanks, <span id="confirm-name">John</span>. A licensed agent is putting your numbers through Allstate and National General now. If you'd rather not wait, the office line is below and it rings the same desk.</p>
+                <button class="call-btn" onclick="window.location.href='tel:+13059211076';">📞 Call (305) 921-1076</button>
+
+                <div class="confirmation-summary">
+                    <h3>What we're quoting</h3>
+                    <div class="summary-item">
+                        <span>Name</span>
+                        <strong id="summary-name">-</strong>
+                    </div>
+                    <div class="summary-item">
+                        <span>Vehicle</span>
+                        <strong id="summary-vehicle">-</strong>
+                    </div>
+                    <div class="summary-item">
+                        <span>Coverage</span>
+                        <strong id="summary-coverage">-</strong>
+                    </div>
+                    <div class="summary-item">
+                        <span>Phone</span>
+                        <strong id="summary-phone">-</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="office-card">
+                <h3>The office</h3>
+                <div class="office-info">
+                    <div class="office-info-icon">📍</div>
+                    <div class="office-info-text">
+                        261 Westward Dr, STE 204-205<br>
+                        Miami Springs, FL 33166
+                    </div>
+                </div>
+                <div class="office-info">
+                    <div class="office-info-icon">📞</div>
+                    <div class="office-info-text">
+                        <a href="tel:+13059211076" style="color: var(--accent); text-decoration: none;">(305) 921-1076</a>
+                    </div>
+                </div>
+                <div class="office-info">
+                    <div class="office-info-icon">✉️</div>
+                    <div class="office-info-text">
+                        <a href="mailto:ecarrazana1@allstate.com" style="color: var(--accent); text-decoration: none;">ecarrazana1@allstate.com</a>
+                    </div>
+                </div>
+
+                <div class="office-hours">
+                    <h4>Office hours</h4>
+                    <div class="hours-item">
+                        <span>Monday to Friday</span>
+                        <strong>9:00 AM to 6:00 PM</strong>
+                    </div>
+                    <div class="hours-item">
+                        <span>Saturday</span>
+                        <strong>10:00 AM to 3:00 PM</strong>
+                    </div>
+                    <div class="hours-item">
+                        <span>Sunday</span>
+                        <strong>Closed</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="disclaimer" id="disclaimer" style="margin-top: 3rem;">
+            Velocity Insurance Group is an independent agency in Miami Springs, Florida, writing policies through Allstate and National General. Quotes are prepared by a licensed agent; submitting the form does not bind coverage.
+        </div>
+    </div>
+
+    <script>
+        let formData = {};
+        let currentCoverageStep = 0;
+        let currentVehicleStep = 0;
+        let currentDriverStep = 0;
+        let currentContactStep = 0;
+
+        const coverageSteps = ['coverage-zip', 'coverage-insured', 'coverage-homeowner', 'coverage-cars'];
+        const vehicleSteps = ['vehicle-year', 'vehicle-make', 'vehicle-model', 'vehicle-ownership', 'vehicle-coverage'];
+        const driverSteps = ['driver-dob', 'driver-gender', 'driver-dui', 'driver-sr22', 'driver-additional'];
+        const contactSteps = ['contact-carrier', 'contact-duration', 'contact-name', 'contact-phone'];
+
+        function goHome() {
+            window.location.href = '/';
+        }
+
+        function switchTab(tab) {
+            document.querySelectorAll('.form-step').forEach(step => step.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(tab).classList.add('active');
+            document.querySelector(`[onclick="switchTab('${tab}')"]`).classList.add('active');
+            
+            const tabIndex = ['coverage', 'vehicle', 'driver', 'contact'].indexOf(tab);
+            showStep(tab, 0);
+        }
+
+        function showStep(tab, stepIndex) {
+            let steps = [];
+            if (tab === 'coverage') steps = coverageSteps;
+            else if (tab === 'vehicle') steps = vehicleSteps;
+            else if (tab === 'driver') steps = driverSteps;
+            else if (tab === 'contact') steps = contactSteps;
+
+            document.querySelectorAll(`#${tab} .form-section`).forEach(s => s.style.display = 'none');
+            document.getElementById(steps[stepIndex]).style.display = 'block';
+
+            if (stepIndex > 0) {
+                document.querySelector(`#${tab} .back-btn`).style.display = 'flex';
+            }
+        }
+
+        function nextStep() {
+            const activeTab = document.querySelector('.tab.active').textContent.toLowerCase();
+            let tab = activeTab === 'coverage' ? 'coverage' : activeTab === 'vehicle' ? 'vehicle' : activeTab === 'driver' ? 'driver' : 'contact';
+            
+            let currentStep = 0;
+            if (tab === 'coverage') currentStep = currentCoverageStep;
+            else if (tab === 'vehicle') currentStep = currentVehicleStep;
+            else if (tab === 'driver') currentStep = currentDriverStep;
+            else if (tab === 'contact') currentStep = currentContactStep;
+
+            let steps = [];
+            if (tab === 'coverage') steps = coverageSteps;
+            else if (tab === 'vehicle') steps = vehicleSteps;
+            else if (tab === 'driver') steps = driverSteps;
+            else if (tab === 'contact') steps = contactSteps;
+
+            if (currentStep < steps.length - 1) {
+                currentStep++;
+                if (tab === 'coverage') currentCoverageStep = currentStep;
+                else if (tab === 'vehicle') currentVehicleStep = currentStep;
+                else if (tab === 'driver') currentDriverStep = currentStep;
+                else if (tab === 'contact') currentContactStep = currentStep;
+                showStep(tab, currentStep);
+            }
+        }
+
+        function previousStep() {
+            const activeTab = document.querySelector('.tab.active').textContent.toLowerCase();
+            let tab = activeTab === 'coverage' ? 'coverage' : activeTab === 'vehicle' ? 'vehicle' : activeTab === 'driver' ? 'driver' : 'contact';
+            
+            let currentStep = 0;
+            if (tab === 'coverage') currentStep = currentCoverageStep;
+            else if (tab === 'vehicle') currentStep = currentVehicleStep;
+            else if (tab === 'driver') currentStep = currentDriverStep;
+            else if (tab === 'contact') currentStep = currentContactStep;
+
+            if (currentStep > 0) {
+                currentStep--;
+                if (tab === 'coverage') currentCoverageStep = currentStep;
+                else if (tab === 'vehicle') currentVehicleStep = currentStep;
+                else if (tab === 'driver') currentDriverStep = currentStep;
+                else if (tab === 'contact') currentContactStep = currentStep;
+                showStep(tab, currentStep);
+            }
+        }
+
+        function selectOption(element, category, value) {
+            element.parentElement.querySelectorAll('.option-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+            formData[category] = value;
+            updateFormState();
+        }
+
+        function updateFormState() {
+            formData.zip = document.getElementById('zip')?.value || '';
+            formData.year = document.getElementById('year')?.value || '';
+            formData.make = document.getElementById('make')?.value || '';
+            formData.model = document.getElementById('model')?.value || '';
+            formData.month = document.getElementById('month')?.value || '';
+            formData.day = document.getElementById('day')?.value || '';
+            formData.birthYear = document.getElementById('birth-year')?.value || '';
+            formData.firstName = document.getElementById('first-name')?.value || '';
+            formData.lastName = document.getElementById('last-name')?.value || '';
+            formData.phone = document.getElementById('phone')?.value || '';
+
+            // Enable/disable next buttons
+            if (document.getElementById('zip-next')) document.getElementById('zip-next').disabled = !formData.zip;
+            if (document.getElementById('insured-next')) document.getElementById('insured-next').disabled = !formData.insured;
+            if (document.getElementById('homeowner-next')) document.getElementById('homeowner-next').disabled = !formData.homeowner;
+            if (document.getElementById('cars-next')) document.getElementById('cars-next').disabled = !formData.cars;
+            if (document.getElementById('year-next')) document.getElementById('year-next').disabled = !formData.year;
+            if (document.getElementById('make-next')) document.getElementById('make-next').disabled = !formData.make;
+            if (document.getElementById('model-next')) document.getElementById('model-next').disabled = !formData.model;
+            if (document.getElementById('ownership-next')) document.getElementById('ownership-next').disabled = !formData.ownership;
+            if (document.getElementById('coverage-next')) document.getElementById('coverage-next').disabled = !formData.coverage;
+            if (document.getElementById('dob-next')) document.getElementById('dob-next').disabled = !(formData.month && formData.day && formData.birthYear);
+            if (document.getElementById('gender-next')) document.getElementById('gender-next').disabled = !formData.gender;
+            if (document.getElementById('dui-next')) document.getElementById('dui-next').disabled = !formData.dui;
+            if (document.getElementById('sr22-next')) document.getElementById('sr22-next').disabled = !formData.sr22;
+            if (document.getElementById('additional-driver-next')) document.getElementById('additional-driver-next').disabled = !formData['additional-driver'];
+            if (document.getElementById('carrier-next')) document.getElementById('carrier-next').disabled = !formData.carrier;
+            if (document.getElementById('duration-next')) document.getElementById('duration-next').disabled = !formData.duration;
+            if (document.getElementById('name-next')) document.getElementById('name-next').disabled = !(formData.firstName && formData.lastName);
+            if (document.getElementById('phone-next')) document.getElementById('phone-next').disabled = !formData.phone;
+        }
+
+        function submitForm() {
+            // Show confirmation page
+            document.querySelectorAll('.form-step').forEach(step => step.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById('confirmation-page').classList.add('active');
+            document.querySelector('[onclick="switchTab(\'contact\')"]').classList.add('active');
+
+            // Update confirmation summary
+            document.getElementById('confirm-name').textContent = formData.firstName || 'John';
+            document.getElementById('summary-name').textContent = `${formData.firstName} ${formData.lastName}`;
+            document.getElementById('summary-vehicle').textContent = `${formData.year} ${formData.make} ${formData.model}`;
+            document.getElementById('summary-coverage').textContent = formData.coverage === 'yes' ? 'Full coverage' : formData.coverage === 'no' ? 'Liability only' : 'TBD';
+            document.getElementById('summary-phone').textContent = formData.phone;
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Initialize
+        updateFormState();
+    </script>
+</body>
+</html>

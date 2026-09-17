@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An Allstate and National General agency in Miami Springs. Answer a few questions and one of our agents calls you back with your quote.">
+    <meta property="og:title" content="Velocity Insurance Group | Car & Home Insurance in Miami Springs">
+    <meta property="og:description" content="An Allstate and National General agency in Miami Springs. Answer a few questions and one of our agents calls you back with your quote.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://velocityinsgroup.com/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="es_US">
+    <meta property="og:site_name" content="Velocity Insurance Group">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Velocity Insurance Group | Car & Home Insurance in Miami Springs">
+    <meta name="twitter:description" content="An Allstate and National General agency in Miami Springs. Answer a few questions and one of our agents calls you back with your quote.">
+    <meta name="theme-color" content="#080B13">
+    <title>Velocity Insurance Group | Car & Home Insurance in Miami Springs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #080B13;
+            --secondary: #1a1f2e;
+            --accent: #00a8ff;
+            --text-light: #f0f0f0;
+            --text-muted: #b0b0b0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-light);
+            background: var(--primary);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: var(--primary);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .phone-link {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .phone-link:hover {
+            background: #0088cc;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(8, 11, 19, 0.7), rgba(8, 11, 19, 0.7)), url('https://velocity-insurance-group.pages.dev/images/hero-street.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text-muted);
+        }
+
+        .quote-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .quote-form input {
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            min-width: 250px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #0088cc;
+        }
+
+        .disclaimer {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .partnership {
+            background: var(--secondary);
+            text-align: center;
+        }
+
+        .partnership-logos {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .partnership-logos div {
+            padding: 1rem 2rem;
+            background: rgba(0, 168, 255, 0.1);
+            border-radius: 8px;
+            min-width: 150px;
+        }
+
+        /* Coverage Grid */
+        .coverage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .coverage-item {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .coverage-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        .coverage-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Steps Section */
+        .steps {
+            background: var(--secondary);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step {
+            background: var(--primary);
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 3px solid var(--accent);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            color: var(--primary);
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* Why Choose Us */
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-card {
+            padding: 2rem;
+            border-radius: 8px;
+            background: var(--secondary);
+        }
+
+        .benefit-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .benefit-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--secondary);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .agent-card {
+            background: var(--primary);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .agent-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .agent-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .agent-title {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .agent-quote {
+            font-style: italic;
+            color: var(--text-muted);
+            border-left: 3px solid var(--accent);
+            padding-left: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contact-info p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .contact-info strong {
+            color: var(--text-light);
+        }
+
+        .hours {
+            background: var(--primary);
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h5 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .footer-address {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .footer-contact a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .quote-form {
+                flex-direction: column;
+            }
+
+            .quote-form input {
+                min-width: 100%;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 2rem 1rem;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Velocity Insurance Group</a>
+        <nav>
+            <a href="#main">EN (English)</a>
+            <a href="#main">ES (Español)</a>
+            <a href="tel:+13059211076" class="phone-link">Call (305) 921-1076</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Car insurance from $29 per month*</h1>
+            <p>Answer a few questions. An agent calls you back with your quote, usually the same day.</p>
+            <div class="quote-form">
+                <input type="text" placeholder="Enter your ZIP code">
+                <button class="btn-primary">Compare now</button>
+            </div>
+            <p class="disclaimer">* Rates vary by driver, vehicle and coverage. Your quote is prepared by a licensed agent.</p>
+        </div>
+    </section>
+
+    <section class="partnership">
+        <h2>In partnership with Allstate</h2>
+        <p>Velocity writes Allstate and National General, Allstate's sister company. One agent, both books, and a person in Miami Springs who answers the phone.</p>
+        <div class="partnership-logos">
+            <div>Allstate</div>
+            <div>National General</div>
+        </div>
+    </section>
+
+    <section id="main">
+        <h2>Everything you'd insure, in one place</h2>
+        <p>Most people come to us for the car. They stay because the house, the boat and the ring end up on one bill with one agent.</p>
+        <div class="coverage-grid">
+            <div class="coverage-item">
+                <h4>Auto</h4>
+                <p>Liability through full coverage, SR-22s included.</p>
+            </div>
+            <div class="coverage-item">
+                <h4>Home</h4>
+                <p>Florida homeowners, wind and flood questions answered straight.</p>
+            </div>
+            <div class="coverage-item">
+                <h4>Renters</h4>
+                <p>Covers Theft, Fires, and Bodily injuries.</p>
+            </div>
+            <div class="coverage-item">
+                <h4>Life</h4>
+                <p>Term and whole life, quoted alongside everything else.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Why people move their policy to us</h2>
+        <div class="benefits">
+            <div class="benefit-card">
+                <h4>You get an agent, not a call centre</h4>
+                <p>The number on this site rings the Miami Springs office. The same person who quotes you handles your claim.</p>
+            </div>
+            <div class="benefit-card">
+                <h4>We don't sell your details</h4>
+                <p>Your information goes to Velocity and stays there. No lead brokers, no twelve carriers calling you at dinner.</p>
+            </div>
+            <div class="benefit-card">
+                <h4>Bundling is done properly</h4>
+                <p>Car, house, boat and the ring on one policy set, with every discount you qualify for actually applied.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <h2>An office in Miami Springs, and the agent who runs it</h2>
+        <div class="about-content">
+            <div class="agent-card">
+                <img src="images/eduardo-photo.png" alt="Eduardo Carrazana" style="width: 150px; height: 150px; border-radius: 8px; object-fit: cover; margin-bottom: 1rem;">
+                <div class="agent-name">Eduardo Carrazana</div>
+                <div class="agent-title">Agency owner</div>
+                <div class="agent-quote">"The best compliment is a referral."</div>
+                <p style="margin-top: 1rem; color: var(--text-muted); font-size: 0.9rem;">Velocity is a small agency, which is the point. You get one agent who knows your file, and the same person who quotes the policy picks up when you need to change it or claim on it.</p>
+            </div>
+            <div class="contact-info">
+                <div>
+                    <strong>Address</strong>
+                    <p>261 Westward Dr, STE 204-205<br>Miami Springs, FL 33166</p>
+                </div>
+                <div>
+                    <strong>Phone</strong>
+                    <p><a href="tel:+13059211076" style="color: var(--accent); text-decoration: none;">(305) 921-1076</a></p>
+                </div>
+                <div>
+                    <strong>Email</strong>
+                    <p><a href="mailto:ecarrazana1@allstate.com" style="color: var(--accent); text-decoration: none;">ecarrazana1@allstate.com</a></p>
+                </div>
+                <div class="hours">
+                    <strong>Office hours</strong>
+                    <p style="margin-top: 0.5rem;">Monday to Friday: 9:00 AM to 6:00 PM<br>Saturday: 10:00 AM to 3:00 PM<br>Sunday: Closed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Two minutes now, a real quote today</h2>
+        <p>Start with your ZIP code. You can stop at any point, nothing sends until the last step.</p>
+        <div class="quote-form">
+            <input type="text" placeholder="Enter your ZIP code">
+            <button class="btn-primary">Start my quote</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h5>Contact</h5>
+                <div class="footer-address">
+                    <p>261 Westward Dr, STE 204-205<br>Miami Springs, FL 33166</p>
+                    <p><a href="tel:+13059211076">(305) 921-1076</a></p>
+                    <p><a href="mailto:ecarrazana1@allstate.com">ecarrazana1@allstate.com</a></p>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h5>Coverage</h5>
+                <ul>
+                    <li><a href="#main">Auto</a></li>
+                    <li><a href="#main">Home + auto bundle</a></li>
+                    <li><a href="#main">Home</a></li>
+                    <li><a href="#main">Renters</a></li>
+                    <li><a href="#main">Life</a></li>
+                    <li><a href="#main">Umbrella</a></li>
+                    <li><a href="#main">Jewelry</a></li>
+                    <li><a href="#main">Boat</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h5>Hours</h5>
+                <p>Monday to Friday: 9:00 AM to 6:00 PM</p>
+                <p>Saturday: 10:00 AM to 3:00 PM</p>
+                <p>Sunday: Closed</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Velocity Insurance Group is an independent agency in Miami Springs, Florida, writing policies through Allstate and National General. Quotes are prepared by a licensed agent; submitting the form does not bind coverage.</p>
+            <p style="margin-top: 1rem;">&copy; 2026 Velocity Insurance Group</p>
+        </div>
+    </footer>
+</body>
+</html>
